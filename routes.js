@@ -7,5 +7,8 @@ module.exports = function(app) {
         .get(jsonku.index);
 
     app.route('/tampil')
-            .get(jsonku.tampilsemuamontir);
+        .get(jsonku.tampilsemuamontir);
+    
+    app.route('/tampil/:id')
+        .get(jsonku.tampilberdasarkanid);
 }
