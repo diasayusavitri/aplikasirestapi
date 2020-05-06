@@ -7,17 +7,17 @@ var config = require('../config/secret');
 var ip = require('ip');
 
 //controller untuk register
-exports.registrasi = function(req,res){
+exports.registrasi = function(req,res) {
     var post = {
-        username: req.body.username,
+        nama_user: req.body.nama_user,
         email: req.body.email,
         password: md5(req.body.password),
-        role: req.body.role,
+        level: req.body.level,
         tanggal_daftar: new Date()
     }
 
-    var query = "SELECT email from ?? WHERE ??";
-    var table = ("t_user", "email", post.email);
+    var query = "SELECT email FROM ?? WHERE ??=?";
+    var table = ["t_user", "email", post.email];
 
     query = mysql.format(query,table);
 
@@ -27,7 +27,7 @@ exports.registrasi = function(req,res){
         }else {
             if(rows.length == 0){
                 var query = "INSERT INTO ?? SET ?";
-                var table = ["user"];
+                var table = ["t_user"];
                 query = mysql.format(query, table);
                 connection.query(query, post, function(error, rows){
                     if(error){
@@ -37,7 +37,7 @@ exports.registrasi = function(req,res){
                     }
                 });
             }else {
-                response.ok("Email sudah terdaftar");
+                response.ok("Email sudah terdaftar", res);
             }
         }
     })
