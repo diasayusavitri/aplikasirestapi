@@ -12,7 +12,7 @@ exports.registrasi = function(req,res) {
         nama_user: req.body.nama_user,
         email: req.body.email,
         password: md5(req.body.password),
-        level: req.body.level,
+        role: req.body.role,
         tanggal_daftar: new Date()
     }
 
@@ -82,7 +82,7 @@ exports.login = function(req,res) {
                             success: true,
                             message:'Token JWT tergenerate',
                             token:token,
-                            currUser:data.id_user
+                            currUser: data.id_user
                         });
                     }
                 });
@@ -91,4 +91,8 @@ exports.login = function(req,res) {
             }
         }
     });
+}
+
+exports.halamanrahasia = function(req,res){
+    response.ok("Halaman ini hanya untuk user dengan role = 2",res);
 }
