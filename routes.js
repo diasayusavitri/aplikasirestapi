@@ -50,4 +50,7 @@ module.exports = function(app) {
 
     app.route('/tambahlevel')
         .post(jsonku.tambahlevel);
+    
+    app.route('/editmontir')
+        .put(jsonku.editmontir);
 }
