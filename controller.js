@@ -128,7 +128,7 @@ exports.tampilberdasarkaniduser = function(req,res){
 };
 
 //menambahkan data montir 
-exports.tambahmontir = function(req, res){
+exports.tambah_montir = function(req, res){
     var id_montir = req.body.id_montir;
     var Nama_montir = req.body.Nama_montir;
     var harga_perjam = req.body.harga_perjam;
