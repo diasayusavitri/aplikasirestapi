@@ -44,7 +44,7 @@ exports.registrasi1 = function(req,res) {
 }
 
 //controller untuk login
-exports.login1 = function(req,res) {
+exports.login2 = function(req,res) {
     var post = {
         password: req.body.password,
         email: req.body.email
