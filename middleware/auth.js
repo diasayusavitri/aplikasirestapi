@@ -7,7 +7,7 @@ var config = require('../config/secret');
 var ip = require('ip');
 
 //controller untuk register
-exports.registrasi = function(req,res) {
+exports.registrasi1 = function(req,res) {
     var post = {
         nama_user: req.body.nama_user,
         email: req.body.email,
@@ -44,7 +44,7 @@ exports.registrasi = function(req,res) {
 }
 
 //controller untuk login
-exports.login = function(req,res) {
+exports.login1 = function(req,res) {
     var post = {
         password: req.body.password,
         email: req.body.email
