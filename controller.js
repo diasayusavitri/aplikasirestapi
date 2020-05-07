@@ -182,7 +182,7 @@ exports.tambahsparepart = function(req, res){
          });
 }; 
 
-//menambahkan data sparepart
+//menambahkan data user
 exports.tambahuser = function(req, res){
     var id_user = req.body.id_user;
     var nama_user = req.body.nama_user;
@@ -193,6 +193,23 @@ exports.tambahuser = function(req, res){
 
     connection.query('INSERT INTO t_user (id_user, nama_user, email, password, role, tanggal_daftar) VALUES(?,?,?,?,?,?)',
          [id_user, nama_user, email, password, role, tanggal_daftar],
+         function (error, rows, fields){
+             if(error){
+                 console.log(error);
+             }else {
+                 response.ok("Berhasil Menambahkan Data",res)
+             }
+         });
+}; 
+
+//menambahkan data level
+exports.tambahlevel = function(req, res){
+    var id_level = req.body.id_level;
+    var nama_level = req.body.nama_level;
+    var role = req.body.role;
+
+    connection.query('INSERT INTO t_level (id_level, nama_level, role) VALUES(?,?,?)',
+         [id_level, nama_level, role],
          function (error, rows, fields){
              if(error){
                  console.log(error);
