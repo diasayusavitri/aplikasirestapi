@@ -181,3 +181,23 @@ exports.tambahsparepart = function(req, res){
              }
          });
 }; 
+
+//menambahkan data sparepart
+exports.tambahuser = function(req, res){
+    var id_user = req.body.id_user;
+    var nama_user = req.body.nama_user;
+    var email = req.body.email;
+    var password = req.body.password;
+    var role = req.body.role;
+    var tanggal_daftar = req.body.tanggal_daftar;
+
+    connection.query('INSERT INTO t_user (id_user, nama_user, email, password, role, tanggal_daftar) VALUES(?,?,?,?,?,?)',
+         [id_user, nama_user, email, password, role, tanggal_daftar],
+         function (error, rows, fields){
+             if(error){
+                 console.log(error);
+             }else {
+                 response.ok("Berhasil Menambahkan Data",res)
+             }
+         });
+}; 
