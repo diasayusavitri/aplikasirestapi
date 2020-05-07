@@ -53,4 +53,7 @@ module.exports = function(app) {
     
     app.route('/editmontir')
         .put(jsonku.editmontir);
+    
+    app.route('/editsparepart')
+        .put(jsonku.editsparepart);
 }
