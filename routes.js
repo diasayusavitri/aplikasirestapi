@@ -56,4 +56,7 @@ module.exports = function(app) {
     
     app.route('/editsparepart')
         .put(jsonku.editsparepart);
+
+    app.route('/edituser')
+        .put(jsonku.edituser);
 }
