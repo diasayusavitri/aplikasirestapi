@@ -353,3 +353,16 @@ exports.hapususer = function(req, res){
         }
     });
 };
+
+//menghapus data level
+exports.hapuslevel = function(req, res){
+    var id = req.body.id_level;
+    connection.query('DELETE FROM t_level WHERE id_level=?', [id],
+    function (error, rows, fields){
+        if(error) {
+            console.log(error);
+        }else {
+            response.ok("Berhasil Hapus Data", res)
+        }
+    });
+};
