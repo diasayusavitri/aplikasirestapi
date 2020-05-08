@@ -77,4 +77,7 @@ module.exports = function(app) {
 
     app.route('/hapuslevel')
     .delete(jsonku.hapuslevel);
+
+    app.route('/hapusservis')
+    .delete(jsonku.hapusservis);
 }
