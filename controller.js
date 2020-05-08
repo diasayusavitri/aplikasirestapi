@@ -292,3 +292,25 @@ exports.editlevel = function (req, res) {
         }
     });
 };
+
+//mengubah data servis
+exports.editservis = function (req, res) {
+    var id_servis = req.body.id_servis;
+    var tgl_servis = req.body.tgl_servis;
+    var id_user = req.body.id_user;  
+    var id_montir = req.body.id_montir;
+    var jumlah_sparepart = req.body.jumlah_sparepart;
+    var id_sparepart = req.body.id_sparepart;
+    var jam_servis = req.body.jam_servis;
+    var total_servis = req.body.total_servis;
+
+    connection.query('UPDATE t_servis SET tgl_servis=?, id_user=?, id_montir=?, jumlah_sparepart=?, id_sparepart=?, jam_servis=?, total_servis=? WHERE id_servis=?',
+    [tgl_servis, id_user, id_montir, jumlah_sparepart, id_sparepart, jam_servis, total_servis, id_servis],
+    function (error, rows, fields) {
+        if (error) {
+            console.log(error);
+        }else {
+            response.ok("Berhasil Mengubah Data", res)
+        }
+    });
+};

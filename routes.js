@@ -62,4 +62,7 @@ module.exports = function(app) {
 
     app.route('/editlevel')
         .put(jsonku.editlevel);
+
+    app.route('/editservis')
+        .put(jsonku.editservis);
 }
